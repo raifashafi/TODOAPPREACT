@@ -1215,27 +1215,37 @@ const View = () => {
             <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">USERID</th>
+      <th scope="col">TITLE</th>
+      <th scope="col">COMPLETED</th>
+    </tr>
+  </thead>
+  <tbody>
+   {data.map(
+    (value,index)=>(
+        <tr>
+        <th scope="row">{index}</th>
+        <td>{value.userId}</td>
+        <td>{value.title}</td>
+        <td>{value.completed}</td>
+      </tr>
+    )
+   )
 
-                        <div className="row g-3">
-                            {data.map(
-                                (value, index) => {
-                                    return <div className="col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+   }
 
-                                        <div class="card">
-                                            <img src="  data:image/jpeg;base64,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" class="card-img-top" alt="..." />
-                                            <div class="card-body">
-                                                <h5 class="card-title">{value.userId}</h5>
-                                                <p class="card-text">id:{value.id}</p>
-                                                <p class="card-text">title:{value.title}</p>
-                                                <p class="card-text">completed:{value.completed}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
-                            )
 
-                            }
-                        </div>
+  </tbody>
+</table>
+
+
+
+
+
                     </div>
                 </div>
             </div>
